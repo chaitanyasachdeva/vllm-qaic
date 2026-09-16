@@ -1869,7 +1869,7 @@ def _get_qaic_compile_config(
         "prefill_seq_len": 128,
         "ctx_len": vllm_config.model_config.max_model_len,
         "batch_size": vllm_config.scheduler_config.max_num_seqs if vllm_config.kv_transfer_config and vllm_config.kv_transfer_config.kv_role == "kv_consumer" else 1,
-        "full_batch_size": vllm_config.scheduler_config.max_num_seqs if vllm_config.kv_transfer_config and vllm_config.kv_transfer_config.kv_role == "kv_consumer" else 1,
+        "full_batch_size": vllm_config.scheduler_config.max_num_seqs,
         "kv_cache_batch_size": kv_cache_batch_size,
         "device_group": _device_group,
         "num_devices": len(_device_group) if _device_group is not None else 1,
